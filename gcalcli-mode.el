@@ -1,4 +1,13 @@
 ;;; gcalcli-mode.el --- Simple emacs mode around gcalcli ;; -*- lexical-binding: t -*-
+;; Copyright (C) 2018 Christian Köstlin
+
+;; This file is NOT part of GNU Emacs.
+
+;; Author: Christian Köstlin <christian.koestlin@gmail.com>
+;; Keywords: tools, calendar
+;; Package-Requires: ((emacs "26.1"))
+;; Package-Version: 0.0.1
+;; Homepage: http://github.com/gizmomogwai/gcalcli-mode
 ;;; Commentary:
 ;;; Code:
 
@@ -69,14 +78,12 @@
                                 (gcalcli-mode--fill-buffer gcalcli-mode--date)))
     (define-key map (kbd "+") (lambda()
                                 (interactive)
-                                (message "more")
                                 (customize-set-variable 'gcalcli-mode-days-to-show (1+ gcalcli-mode-days-to-show))
                                 (gcalcli-mode--fill-buffer gcalcli-mode--date)))
     (define-key map (kbd "-") (lambda()
                                 (interactive)
                                 (if (> gcalcli-mode-days-to-show 1)
                                   (progn
-                                    (message "less")
                                     (customize-set-variable 'gcalcli-mode-days-to-show (1- gcalcli-mode-days-to-show))
                                     (gcalcli-mode--fill-buffer gcalcli-mode--date)))))
     map)
